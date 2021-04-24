@@ -1,42 +1,58 @@
 public class MOB implements Attributes{
     protected String name;
-    protected int hp;
+    protected int maxHp;
     protected int armor;
     protected int hitModifier;
     protected DiceType damageDie;
+    protected int damage;
 
+    // Default constructor for MOB
     public MOB(String name, int hp, int armor, int hitModifier, DiceType damageDie) {
         //this.name = name;
-        this.hp = hp;
+        this.maxHp = hp;
         this.armor = armor;
         this.hitModifier = hitModifier;
         this.damageDie = damageDie;
     }
 
-    public String getName(String name) {
+    public String getName() {
         return name;
     }
-    public int getHp (int hp) {
-        return hp;
+    public int getHp () {
+        return maxHp;
     }
 
+    public void addDamage(int damage) {
+        this.damage += damage;
+    }
+
+    public void resetDamage() {
+        this.damage = 0;
+    }
+
+    public MOB copy(){
+        return new MOB(this.name, this.maxHp, this.armor, this.hitModifier, this.damageDie);
+    }
+
+
+// Overrides for Attributes inheritance
     @Override
     public int getArmor() {
-        return 0;
+        return armor;
     }
 
     @Override
     public int getMaxHP() {
-        return 0;
+        return maxHp;
     }
 
     @Override
     public DiceType getDamageDie() {
-        return null;
+        return damageDie;
     }
 
     @Override
     public int getHitModifier() {
-        return 0;
+        return hitModifier;
     }
 }
