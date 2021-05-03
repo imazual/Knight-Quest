@@ -51,12 +51,11 @@ public class ConsoleView implements GameView{
 
     @Override
     public void showKnight(Knight knight) {
-
     }
 
     @Override
     public void setActiveFailed() {
-
+        System.out.println("\tUnable to set active knight. Only four can be active at a time.");
     }
 
     @Override
